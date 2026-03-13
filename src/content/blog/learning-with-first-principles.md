@@ -1,0 +1,6 @@
+---
+title: "Learning with First Principles Thinking"
+description: "Nothing beats the spark in a child’s eyes when they connect ideas on their own."
+pubDate: 2025-04-25
+---
+<p>Lately, I’ve been testing my AI curriculum with a 9 year old. Last week, as a 'warm-up' exercise, I gave him the handshake lemma as a problem to solve. As he worked it out inductively 1:0, 2:1, 3:3, 4:6, 5:10 ... (by drawing graphs) he suddenly paused. His eyes lit up, and he said “Wait, I think we’ve seen this pattern before!”</p><p><br></p><p>I’d been waiting for this moment. 😃</p><p><br></p><p>“Aren’t these the triangular numbers from Pascal’s triangle we did the other day?” 💡</p><p><br></p><p>This is the magic of teaching from First Principles. These little lightbulb moments are proof of why we need to nurture first principles + systems thinking from an early age.</p><p><br></p><p>(PS - yeah, handshake lemma form and triangular numbers aren't exactly same, there is an offset. but hey, you know this post isn't about mathematical correctness.)</p>

@@ -1,17 +1,118 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import ArticleCard from '../components/ArticleCard.astro';
 
+const latestArticles = (await getCollection('blog'))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Nehal Joshi | Home"
+  description="Educator, Designer, Product Leader. Driven by Purpose."
+>
+  <section class="py-10 md:py-16">
+    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-3xl">
+      <div class="flex-1">
+        <h1 class="mb-6">
+          Educator, Designer, Product Leader. Driven by Purpose.
+        </h1>
+        <p class="text-xl mb-8 text-muted-foreground">
+          I'm passionate about building edtech products, grounded in first principles and driven by curiosity.
+        </p>
+        <div class="flex space-x-4">
+          <a
+            href="/about"
+            class="inline-flex items-center px-4 py-2 border border-primary text-primary rounded hover:bg-primary hover:text-primary-foreground transition-colors"
+          >
+            More about me
+          </a>
+          <a href="/blog" class="inline-flex items-center text-primary hover:underline">
+            Read my posts <span class="ml-2">→</span>
+          </a>
+        </div>
+      </div>
+      <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-muted shrink-0">
+        <a href="/nehal-joshi-profile.jpg" target="_blank" rel="noopener noreferrer">
+          <img
+            src="/nehal-joshi.jpg"
+            alt="Nehal Joshi"
+            class="w-full h-full object-cover"
+          />
+        </a>
+      </div>
+    </div>
+
+    <div class="mb-10">
+      <br />
+      <p class="mb-4">
+        Besides work, I enjoy playing Chess, reading books, and spending time with my family. I am not much into
+        movies, TV, travel, or gaming. And that keeps my social circle small and my life simple. I do love exploring
+        new ideas though, and I'm always learning something new. I also enjoy writing about my experiences and
+        thoughts on my social handles. Do connect with me there!
+      </p>
+    </div>
+    <div class="flex space-x-6">
+      <a href="mailto:me@nehal.work" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
+        EMAIL
+      </a>
+      <a
+        href="https://peerlist.io/nehal"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-muted-foreground hover:text-primary transition-colors"
+        aria-label="Peerlist"
+      >
+        PEERLIST
+      </a>
+      <a
+        href="https://linkedin.com/in/nehaljoshi"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-muted-foreground hover:text-primary transition-colors"
+        aria-label="LinkedIn"
+      >
+        LINKEDIN
+      </a>
+      <a
+        href="https://x.com/nehalmax"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-muted-foreground hover:text-primary transition-colors"
+        aria-label="X (formerly Twitter)"
+      >
+        X
+      </a>
+    </div>
+  </section>
+
+  <section class="py-10">
+    <h2 class="mb-8">Latest Posts</h2>
+    {latestArticles.length === 0 ? (
+      <div class="py-8 text-center">
+        <p class="text-muted-foreground">No blog posts available yet</p>
+      </div>
+    ) : (
+      <div class="grid gap-4">
+        {latestArticles.map((article, index) => (
+          <ArticleCard
+            article={{
+              slug: article.id.replace(/\.(md|mdx)$/i, ''),
+              title: article.data.title,
+              excerpt: article.data.description,
+              date: article.data.pubDate,
+            }}
+            index={index}
+          />
+        ))}
+      </div>
+    )}
+
+    <div class="mt-10">
+      <a href="/blog" class="inline-flex items-center text-primary hover:underline">
+        View all posts <span class="ml-2">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

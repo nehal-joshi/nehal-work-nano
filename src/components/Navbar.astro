@@ -1,0 +1,29 @@
+---
+const pathname = Astro.url.pathname;
+const navItems = [
+  { name: 'Home', path: '/' },
+  { name: 'About', path: '/about' },
+  { name: 'Blog', path: '/blog' },
+];
+---
+
+<header class="w-full py-6 border-b border-border animate-fade-in">
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+    <div class="mb-4 md:mb-0">
+      <a href="/" class="inline-block">
+        <h1 class="text-xl font-semibold">Nehal Joshi</h1>
+      </a>
+    </div>
+    <nav>
+      <ul class="flex items-center space-x-6">
+        {navItems.map((item) => (
+          <li>
+            <a href={item.path} class:list={['navbar-item', pathname === item.path && 'active']}>
+              {item.name}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>

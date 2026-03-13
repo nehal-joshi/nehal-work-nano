@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  title="Blog | Nehal Joshi"
+  description="Thoughts on education, design, and learning systems."
+>
+  <section>
+    <h1 class="mb-6">Blog</h1>
+    <p class="text-xl mb-10 text-muted-foreground max-w-3xl">
+      Thoughts, ideas, and reflections on education, technology, design, and the intersection of all three.
+    </p>
+
+    {posts.length === 0 ? (
+      <div class="py-8 text-center">
+        <p class="text-muted-foreground">No blog posts found.</p>
+      </div>
+    ) : (
+      <div class="grid gap-4 mt-12">
+        {posts.map((post, index) => (
+          <ArticleCard
+            article={{
+              slug: post.id.replace(/\.(md|mdx)$/i, ''),
+              title: post.data.title,
+              excerpt: post.data.description,
+              date: post.data.pubDate,
+            }}
+            index={index}
+          />
+        ))}
+      </div>
+    )}
+  </section>
+</BaseLayout>

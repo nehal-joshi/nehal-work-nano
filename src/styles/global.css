@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+    --primary: 220 15% 20%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 5% 96%;
+    --secondary-foreground: 220 15% 20%;
+    --muted: 220 5% 96%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 220 5% 96%;
+    --accent-foreground: 220 15% 20%;
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 10% 90%;
+    --input: 220 10% 90%;
+    --ring: 220 15% 20%;
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-work-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-raleway font-medium leading-tight;
+  }
+
+  h1 {
+    @apply text-4xl md:text-5xl font-semibold;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl;
+  }
+
+  p {
+    @apply leading-relaxed;
+  }
+
+  .container {
+    @apply px-4 md:px-6 mx-auto max-w-5xl;
+  }
+}
+
+@layer components {
+  .navbar-item {
+    @apply inline-flex relative px-2 py-1 font-medium text-sm cursor-pointer transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform;
+  }
+
+  .navbar-item.active {
+    @apply after:scale-x-100 after:origin-bottom-left;
+  }
+}
+
+.prose a {
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.prose a:hover {
+  color: hsl(var(--primary));
+}

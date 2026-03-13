@@ -1,0 +1,39 @@
+---
+interface ArticlePreview {
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: string | Date;
+}
+
+interface Props {
+  article: ArticlePreview;
+  index?: number;
+}
+
+const { article, index = 0 } = Astro.props;
+const date = new Date(article.date);
+const formattedDate = date.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<a
+  href={`/blog/${article.slug}`}
+  class="relative group flex flex-nowrap py-4 px-4 pr-12 rounded-lg border border-border hover:bg-muted/50 transition-colors duration-300 ease-in-out animate-fade-in"
+  style={`animation-delay: ${index * 100}ms;`}
+>
+  <div class="flex flex-col flex-1 min-w-0">
+    <div class="text-sm text-muted-foreground mb-1">{formattedDate}</div>
+    <div class="font-semibold text-foreground mb-2 line-clamp-1 text-lg">{article.title}</div>
+    <div class="text-base text-muted-foreground line-clamp-2">{article.excerpt}</div>
+  </div>
+  <span
+    class="absolute top-1/2 right-3 -translate-y-1/2 text-muted-foreground group-hover:text-primary transition-all duration-300 ease-in-out transform translate-x-1 group-hover:translate-x-0"
+    aria-hidden="true"
+  >
+    →
+  </span>
+</a>
