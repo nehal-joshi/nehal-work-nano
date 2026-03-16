@@ -2,10 +2,20 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import ArticleCard from '../components/ArticleCard.astro';
+import projects from '../content/projects/projects.json';
 
 const latestArticles = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+type ProjectCard = {
+  title: string;
+  description: string;
+  url: string;
+  thumbnailImage?: string;
+};
+
+const builtProjects = projects as ProjectCard[];
 ---
 
 <BaseLayout
@@ -15,7 +25,7 @@ const latestArticles = (await getCollection('blog'))
   <section class="py-8 md:py-12">
     <div class="flex flex-col items-start gap-6 max-w-3xl">
       <div class="mb-6 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-muted shrink-0">
-        <a href="/nehal-joshi-profile.jpg" target="_blank" rel="noopener noreferrer">
+        <a href="/nehal-joshi.jpg" target="_blank" rel="noopener noreferrer">
           <img
             src="/nehal-joshi.jpg"
             alt="Nehal Joshi"
@@ -25,10 +35,10 @@ const latestArticles = (await getCollection('blog'))
       </div>
       <div>
         <h1 class="mb-6">
-          Educator, Designer, Product Builder.
+          Educator, Designer, Builder.
         </h1>
         <p class="text-xl mb-8 text-muted-foreground">
-          Passionate about building edtech products, grounded in first principles and driven by curiosity.
+          I build learning products that teach people how to think. Grounded in first principles and driven by curiosity.
         </p>
       </div>
     </div>
@@ -36,10 +46,10 @@ const latestArticles = (await getCollection('blog'))
     <div class="mb-10">
       <br />
       <p class="mb-4">
-        I'm Nehal Joshi.  I've spent 15 years designing how people learn — from K12 ICT curriculum used by over 200+ schools, empowering over 200,000+ students across the globe, to retraining senior citizens for a post-COVID world, to now founding Lernok, a first-principles tech platform preparing kids for an AI-native future.
+        For 15 years I've been designing how people learn - from building K-12 ICT curricula used in 200+ schools by over 200,000 students worldwide, to running digital literacy programs for senior citizens.
       </p>
-      <p class="mb-8">
-        My work spans curriculum architecture, learning experience design, and edtech product development. I bring an interdisciplinary lens to every problem: part educator, part designer, part builder.
+      <p class="mb-4">
+        Today I'm building <a href="https://lernok.com/" target="_blank" rel="noopener noreferrer" class="font-bold no-underline"><strong>Lernok</strong></a>, an edtech platform that teaches kids to become builders using first-principles thinking, preparing them for an AI-native world.
       </p>
 
       <hr class="my-10 bg-gray-200" />
@@ -47,15 +57,54 @@ const latestArticles = (await getCollection('blog'))
       <div class="mb-10">
         <h2 class="text-2xl mb-4">Philosophy</h2>
         <p class="mb-4">
-          I believe the best learning experiences are built twice — once on paper, once in the real world after watching them fail and improve.
-          A few things that guide my work:
+          I believe good education should:
         </p>
         <ul class="list-disc pl-6 mb-4 space-y-2">
-          <li>Learner needs over institutional convenience</li>
-          <li>Technology that extends human capability, not replaces human judgment</li>
-          <li>Every design decision tested against real outcomes, not assumptions</li>
-          <li>Quality learning should not be a function of privilege</li>
+          <li>Start with first principles - understand the fundamentals before the tools</li>
+          <li>Encourage curiosity and experimentation</li>
+          <li>Connect ideas to real-world problems</li>
+          <li>Be accessible to anyone willing to learn</li>
         </ul>
+      </div>
+
+      <hr class="my-10 bg-gray-200" />
+
+      <div class="mb-12">
+        <h2 class="text-2xl mb-4">Things I've Built</h2>
+        <p class="mb-6">
+          A few side projects and products I've built using AI-first, vibe coding workflows.
+        </p>
+        <div class="grid gap-4">
+          {builtProjects.map((project, index) => (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="relative group flex items-center gap-4 py-4 px-4 pr-12 rounded-lg border border-border hover:bg-muted/50 transition-colors duration-300 ease-in-out animate-fade-in"
+              style={`animation-delay: ${index * 100}ms;`}
+            >
+              <div class="w-32 h-20 md:w-36 md:h-24 rounded-lg border border-border bg-muted/40 shrink-0 overflow-hidden">
+                {project.thumbnailImage ? (
+                  <img
+                    src={project.thumbnailImage}
+                    alt={`${project.title} thumbnail`}
+                    class="w-full h-full object-cover"
+                  />
+                ) : null}
+              </div>
+              <div class="flex-1 min-w-0">
+                <div class="font-semibold text-foreground mb-1 line-clamp-1 text-lg">{project.title}</div>
+                <div class="text-base text-muted-foreground line-clamp-2">{project.description}</div>
+              </div>
+              <span
+                class="absolute top-1/2 right-3 -translate-y-1/2 text-muted-foreground group-hover:text-primary transition-all duration-300 ease-in-out transform translate-x-1 group-hover:translate-x-0"
+                aria-hidden="true"
+              >
+                →
+              </span>
+            </a>
+          ))}
+        </div>
       </div>
 
       <hr class="my-10 bg-gray-200" />
