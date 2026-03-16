@@ -2,8 +2,7 @@
 const pathname = Astro.url.pathname;
 const navItems = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Blog', path: '/blog' },
+  { name: 'Notes', path: '/notes' },
 ];
 ---
 
@@ -11,7 +10,7 @@ const navItems = [
   <div class="flex flex-col md:flex-row md:items-center md:justify-between">
     <div class="mb-4 md:mb-0">
       <a href="/" class="inline-block">
-        <h1 class="text-xl font-semibold">Nehal Joshi</h1>
+        <h1 class="text-base font-semibold">Nehal Joshi</h1>
       </a>
     </div>
     <nav>

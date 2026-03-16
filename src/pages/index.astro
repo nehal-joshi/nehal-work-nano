@@ -10,30 +10,11 @@ const latestArticles = (await getCollection('blog'))
 
 <BaseLayout
   title="Nehal Joshi | Home"
-  description="Educator, Designer, Product Leader. Driven by Purpose."
+  description="Educator, Designer, Product Leader. Driven by purpose."
 >
-  <section class="py-10 md:py-16">
-    <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12 max-w-3xl">
-      <div class="flex-1">
-        <h1 class="mb-6">
-          Educator, Designer, Product Leader. Driven by Purpose.
-        </h1>
-        <p class="text-xl mb-8 text-muted-foreground">
-          I'm passionate about building edtech products, grounded in first principles and driven by curiosity.
-        </p>
-        <div class="flex space-x-4">
-          <a
-            href="/about"
-            class="inline-flex items-center px-4 py-2 border border-primary text-primary rounded hover:bg-primary hover:text-primary-foreground transition-colors"
-          >
-            More about me
-          </a>
-          <a href="/blog" class="inline-flex items-center text-primary hover:underline">
-            Read my posts <span class="ml-2">→</span>
-          </a>
-        </div>
-      </div>
-      <div class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-muted shrink-0">
+  <section class="py-8 md:py-12">
+    <div class="flex flex-col items-start gap-6 max-w-3xl">
+      <div class="mb-6 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-muted shrink-0">
         <a href="/nehal-joshi-profile.jpg" target="_blank" rel="noopener noreferrer">
           <img
             src="/nehal-joshi.jpg"
@@ -42,17 +23,151 @@ const latestArticles = (await getCollection('blog'))
           />
         </a>
       </div>
+      <div>
+        <h1 class="mb-6">
+          Educator, Designer, Product Builder.
+        </h1>
+        <p class="text-xl mb-8 text-muted-foreground">
+          Passionate about building edtech products, grounded in first principles and driven by curiosity.
+        </p>
+      </div>
     </div>
 
     <div class="mb-10">
       <br />
       <p class="mb-4">
-        Besides work, I enjoy playing Chess, reading books, and spending time with my family. I am not much into
-        movies, TV, travel, or gaming. And that keeps my social circle small and my life simple. I do love exploring
-        new ideas though, and I'm always learning something new. I also enjoy writing about my experiences and
+        I'm Nehal Joshi.  I've spent 15 years designing how people learn — from K12 ICT curriculum used by over 200+ schools, empowering over 200,000+ students across the globe, to retraining senior citizens for a post-COVID world, to now founding Lernok, a first-principles tech platform preparing kids for an AI-native future.
+      </p>
+      <p class="mb-8">
+        My work spans curriculum architecture, learning experience design, and edtech product development. I bring an interdisciplinary lens to every problem: part educator, part designer, part builder.
+      </p>
+
+      <hr class="my-10 bg-gray-200" />
+
+      <div class="mb-10">
+        <h2 class="text-2xl mb-4">Philosophy</h2>
+        <p class="mb-4">
+          I believe the best learning experiences are built twice — once on paper, once in the real world after watching them fail and improve.
+          A few things that guide my work:
+        </p>
+        <ul class="list-disc pl-6 mb-4 space-y-2">
+          <li>Learner needs over institutional convenience</li>
+          <li>Technology that extends human capability, not replaces human judgment</li>
+          <li>Every design decision tested against real outcomes, not assumptions</li>
+          <li>Quality learning should not be a function of privilege</li>
+        </ul>
+      </div>
+
+      <hr class="my-10 bg-gray-200" />
+
+
+      <div class="mb-12">
+        <h2 class="text-2xl mb-6">Experience</h2>
+        <div class="space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-semibold">Founder & Chief Educator</h3>
+              <p class="text-muted-foreground">Lernok</p>
+              <p class="text-sm text-muted-foreground">2025 - Present</p>
+            </div>
+            <div class="md:col-span-2">
+              <ul class="list-disc pl-4 space-y-2">
+                <li>Building Lernok - A first principles AI-native tech learning platform for ages 10-16</li>
+                <li>
+                  A next-gen program that builds foundational skills in AI, coding, design, data science, and
+                  entrepreneurship
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-semibold">Independent Consultant</h3>
+              <p class="text-muted-foreground">Various Organizations</p>
+              <p class="text-sm text-muted-foreground">2023 - Present</p>
+            </div>
+            <div class="md:col-span-2">
+              <ul class="list-disc pl-4 space-y-2">
+                <li>Advising on curriculum development and program design to an EdTech startup</li>
+                <li>Directed product and growth strategy for a D2C startup</li>
+                <li>Conducting in-depth analysis of marketing and sales data to uncover insights</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-semibold">Co-founder</h3>
+              <p class="text-muted-foreground">Reskill School</p>
+              <p class="text-sm text-muted-foreground">2021 - 2023</p>
+            </div>
+            <div class="md:col-span-2">
+              <ul class="list-disc pl-4 space-y-2">
+                <li>Designed comprehensive tech-learning programs for senior citizens and middlers</li>
+                <li>Spearheaded the development of product from concept to MVP</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-semibold">Head Academics and Design</h3>
+              <p class="text-muted-foreground">ICT360, MindBox</p>
+              <p class="text-sm text-muted-foreground">2013 - 2021</p>
+            </div>
+            <div class="md:col-span-2">
+              <ul class="list-disc pl-4 space-y-2">
+                <li>Led development of K12 ICT curriculum reaching 200,000+ students</li>
+                <li>Designed a data-driven skill development framework</li>
+                <li>Led a team of instructional designers, engineers, desingers, educators, and social scientists</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-semibold">Guest Faculty (Digital Design)</h3>
+              <p class="text-muted-foreground">DSK-Rubika Int'l School of Design</p>
+              <p class="text-sm text-muted-foreground">2012 - 2014</p>
+            </div>
+            <div class="md:col-span-2">
+              <ul class="list-disc pl-4 space-y-2">
+                <li>Taught digital design and visualization to industrial design graduates</li>
+                <li>Mentored and guided students on digital product design projects and portfolios</li>
+                <li>Jury for final year product design projects</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
+            <div class="md:col-span-1">
+              <h3 class="text-lg font-semibold">Co-founder</h3>
+              <p class="text-muted-foreground">Chapter Sixteen</p>
+              <p class="text-sm text-muted-foreground">2010 - 2012</p>
+            </div>
+            <div class="md:col-span-2">
+              <ul class="list-disc pl-4 space-y-2">
+                <li>
+                  As head of studio, delivered design projects focused on branding, web, mobile, visualization, and
+                  animation
+                </li>
+                <li>Designed brand identity and launched first website for Eruditus</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-10 bg-gray-200" />
+
+    </div>
+
+      <p class="mb-4">
+        Outside of work, I play chess, read obsessively, and explore ideas across disciplines. I keep my world small and intentional - which leaves more room for depth. I also enjoy writing about my experiences and
         thoughts on my social handles. Do connect with me there!
       </p>
-    </div>
+      
     <div class="flex space-x-6">
       <a href="mailto:me@nehal.work" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
         EMAIL
@@ -91,7 +206,7 @@ const latestArticles = (await getCollection('blog'))
     <h2 class="mb-8">Latest Posts</h2>
     {latestArticles.length === 0 ? (
       <div class="py-8 text-center">
-        <p class="text-muted-foreground">No blog posts available yet</p>
+        <p class="text-muted-foreground">No notes available yet</p>
       </div>
     ) : (
       <div class="grid gap-4">
@@ -110,9 +225,18 @@ const latestArticles = (await getCollection('blog'))
     )}
 
     <div class="mt-10">
-      <a href="/blog" class="inline-flex items-center text-primary hover:underline">
-        View all posts <span class="ml-2">→</span>
+      <a href="/notes" class="inline-flex items-center text-primary hover:underline">
+        View all notes <span class="ml-2">→</span>
       </a>
     </div>
   </section>
+
+   <div class="w-full h-auto mt-10 overflow-hidden">
+    <img
+      src="/nehal-talking.jpeg"
+      alt="Nehal Joshi speaking at an event"
+      class="w-full object-cover rounded-md"
+    />
+  </div>
+ 
 </BaseLayout>
