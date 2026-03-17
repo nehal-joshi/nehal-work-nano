@@ -8,6 +8,28 @@ import projects from '../content/projects/projects.json';
 const latestArticles = (await getCollection('blog'))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+const homepageUrl = new URL('/', Astro.site).toString();
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Nehal Joshi',
+  url: homepageUrl,
+  jobTitle: 'Education Product Leader and Founder',
+  description:
+    'Education product leader and designer building AI-native learning experiences. Founder of Lernok.',
+  image: new URL('/nehal-joshi-pfp.jpg', Astro.site).toString(),
+  worksFor: {
+    '@type': 'Organization',
+    name: 'Lernok',
+    url: 'https://lernok.com/',
+  },
+  sameAs: [
+    'https://www.linkedin.com/in/nehaljoshi',
+    'https://x.com/nehalmax',
+    'https://peerlist.io/nehal',
+    'https://www.flickr.com/photos/nehaljoshi/',
+  ],
+};
 
 type ProjectCard = {
   title: string;
@@ -20,8 +42,9 @@ const builtProjects = projects as ProjectCard[];
 ---
 
 <BaseLayout
-  title="Nehal Joshi | Home"
-  description="Educator, Designer, Product Leader. Driven by purpose."
+  title="Nehal Joshi | Education Product Leader, Designer, and Founder of Lernok"
+  description="Nehal Joshi is an education product leader, designer, and founder of Lernok, building AI-native learning products that teach coding, design, and first-principles thinking."
+  structuredData={personSchema}
 >
   <section class="py-4 md:py-6">
     <div class="flex flex-col items-start gap-6 max-w-3xl">

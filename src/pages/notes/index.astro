@@ -6,11 +6,29 @@ import ArticleCard from '../../components/ArticleCard.astro';
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const notesUrl = new URL('/notes', Astro.site).toString();
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Notes by Nehal Joshi',
+  description: 'Notes on education, AI, product design, and first-principles learning.',
+  url: notesUrl,
+  mainEntity: {
+    '@type': 'ItemList',
+    itemListElement: posts.map((post, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      url: new URL(`/notes/${post.id.replace(/\.(md|mdx)$/i, '')}`, Astro.site).toString(),
+      name: post.data.title,
+    })),
+  },
+};
 ---
 
 <BaseLayout
   title="Notes | Nehal Joshi"
   description="Thoughts on education, design, and learning systems."
+  structuredData={collectionSchema}
 >
   <section>
     <h1 class="mb-6">Notes</h1>

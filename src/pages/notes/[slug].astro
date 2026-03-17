@@ -17,13 +17,41 @@ const {
   title,
   description,
   pubDate,
-  updatedDate: _updatedDate,
-  tags: _tags = [],
+  updatedDate,
+  tags = [],
   coverImage,
 } = post.data;
+const articleUrl = new URL(`/notes/${post.id.replace(/\.(md|mdx)$/i, '')}`, Astro.site).toString();
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  datePublished: pubDate.toISOString(),
+  dateModified: (updatedDate || pubDate).toISOString(),
+  author: {
+    '@type': 'Person',
+    name: 'Nehal Joshi',
+    url: new URL('/', Astro.site).toString(),
+  },
+  publisher: {
+    '@type': 'Person',
+    name: 'Nehal Joshi',
+  },
+  mainEntityOfPage: articleUrl,
+  url: articleUrl,
+  image: coverImage ? new URL(coverImage, Astro.site).toString() : undefined,
+  keywords: tags.length > 0 ? tags.join(', ') : undefined,
+};
 ---
 
-<BaseLayout title={`${title} | Nehal Joshi`} description={description} image={coverImage}>
+<BaseLayout
+  title={`${title} | Nehal Joshi`}
+  description={description}
+  image={coverImage}
+  ogType="article"
+  structuredData={articleSchema}
+>
   <article class="max-w-3xl mx-auto">
     <div class="mb-8">
       <a href="/notes" class="inline-flex items-center text-primary hover:underline mb-8">
