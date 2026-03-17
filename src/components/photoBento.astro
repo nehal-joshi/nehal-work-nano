@@ -1,0 +1,61 @@
+---
+import photos from '../content/photos/photos.json';
+
+type PhotoItem = {
+  title: string;
+  imageUrl: string;
+  alt?: string;
+  linkUrl?: string;
+  orientation: 'portrait' | 'landscape';
+};
+
+const allPhotos = photos as PhotoItem[];
+const portraitPhotos = allPhotos.filter((photo) => photo.orientation === 'portrait').slice(0, 2);
+const landscapePhotos = allPhotos.filter((photo) => photo.orientation === 'landscape').slice(0, 3);
+const photoItems = [
+  portraitPhotos[0],
+  landscapePhotos[0],
+  landscapePhotos[1],
+  portraitPhotos[1],
+  landscapePhotos[2],
+].filter(Boolean) as PhotoItem[];
+---
+
+<div class="mb-12">
+  <h2 class="section-title mb-4">Photography</h2>
+  <p class="mb-6">
+    Street photography as a way to notice the quiet, unfiltered moments of everyday life. 
+  </p>
+
+  <div class="bento-grid bento-grid--fixed">
+    {photoItems.map((photo, i) => (
+      <a
+        href={photo.linkUrl || photo.imageUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class:list={['bento-cell', `bento-slot-${i + 1}`]}
+        title={photo.title}
+      >
+        {photo.imageUrl ? (
+          <img
+            src={photo.imageUrl}
+            alt={photo.alt || photo.title}
+            loading="lazy"
+            decoding="async"
+          />
+        ) : (
+          <div class="bento-cell-placeholder">
+            <span>{photo.title}</span>
+          </div>
+        )}
+      </a>
+    ))}
+  </div>
+
+  <div class="mt-8">
+    <a href="https://www.flickr.com/photos/nehaljoshi/" class="inline-flex items-center text-primary hover:underline">
+      View more photos <span class="ml-2">→</span>
+    </a>
+  </div>
+
+</div>

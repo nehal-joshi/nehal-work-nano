@@ -3,18 +3,18 @@
     "title": "Lernok",
     "description": "A platform teaching coding & AI through first-principles thinking.",
     "url": "https://lernok.com/",
-    "thumbnailImage": "https://mbgavbtrrqgsqqdhkpmx.supabase.co/storage/v1/object/public/article-images/lernok-thumbnail.jpg"
+    "thumbnailImage": "/lernok-logo.svg"
   },
   {
     "title": "SubList",
     "description": "Subscription manager to track all digital subscriptions effortlessly.",
     "url": "https://sublist-ext.com/",
-    "thumbnailImage": "https://mbgavbtrrqgsqqdhkpmx.supabase.co/storage/v1/object/public/article-images/hero-sublist-banner.png"
+    "thumbnailImage": "/SubList-new-logo.svg"
   },
   {
     "title": "FiZen",
     "description": "A personal finance manager app I built for myself.",
     "url": "https://fizen-personal-finance.vercel.app/",
-    "thumbnailImage": "https://mbgavbtrrqgsqqdhkpmx.supabase.co/storage/v1/object/public/article-images/02-dashboard.png"
+    "thumbnailImage": "/fizen_icon.svg"
   }
 ]

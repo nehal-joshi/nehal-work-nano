@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import ArticleCard from '../components/ArticleCard.astro';
+import PhotoBento from '../components/photoBento.astro';
 import projects from '../content/projects/projects.json';
 
 const latestArticles = (await getCollection('blog'))
@@ -22,12 +23,12 @@ const builtProjects = projects as ProjectCard[];
   title="Nehal Joshi | Home"
   description="Educator, Designer, Product Leader. Driven by purpose."
 >
-  <section class="py-8 md:py-12">
+  <section class="py-4 md:py-6">
     <div class="flex flex-col items-start gap-6 max-w-3xl">
       <div class="mb-6 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-muted shrink-0">
-        <a href="/nehal-joshi.jpg" target="_blank" rel="noopener noreferrer">
+        <a href="/nehal-joshi-pfp.jpg" target="_blank" rel="noopener noreferrer">
           <img
-            src="/nehal-joshi.jpg"
+            src="/nehal-joshi-pfp.jpg"
             alt="Nehal Joshi"
             class="w-full h-full object-cover"
           />
@@ -37,7 +38,7 @@ const builtProjects = projects as ProjectCard[];
         <h1 class="mb-6">
           Educator, Designer, Builder.
         </h1>
-        <p class="text-xl mb-8 text-muted-foreground">
+        <p class="text-xl mb-4 text-muted-foreground">
           I build learning products that teach people how to think. Grounded in first principles and driven by curiosity.
         </p>
       </div>
@@ -52,10 +53,52 @@ const builtProjects = projects as ProjectCard[];
         Today I'm building <a href="https://lernok.com/" target="_blank" rel="noopener noreferrer" class="font-bold no-underline"><strong>Lernok</strong></a>, an edtech platform that teaches kids to become builders using first-principles thinking, preparing them for an AI-native world.
       </p>
 
+
+
+      <p class="mb-4">
+        Outside of work, I play chess, read obsessively, do street <a href="https://flickr.com/photos/nehaljoshi/" target="_blank" rel="noopener noreferrer" class="font-bold no-underline"><strong>photography</strong></a> with my Fujifilm cameras, and explore ideas across disciplines.
+      </p>
+      <p class="mb-4">
+        I write about what I'm thinking on my social handles. Follow along if any of this resonates:
+      </p>
+      
+      <div class="flex space-x-6">
+        <a href="mailto:me@nehal.work" class="text-muted-foreground underline decoration-current hover:text-primary transition-colors" aria-label="Email">
+          EMAIL
+        </a>
+        <a
+          href="https://peerlist.io/nehal"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted-foreground underline decoration-current hover:text-primary transition-colors"
+          aria-label="Peerlist"
+        >
+          PEERLIST
+        </a>
+        <a
+          href="https://linkedin.com/in/nehaljoshi"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted-foreground underline decoration-current hover:text-primary transition-colors"
+          aria-label="LinkedIn"
+        >
+          LINKEDIN
+        </a>
+        <a
+          href="https://x.com/nehalmax"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-muted-foreground underline decoration-current hover:text-primary transition-colors"
+          aria-label="X (formerly Twitter)"
+        >
+          X
+        </a>
+      </div>
+
       <hr class="my-10 bg-gray-200" />
 
       <div class="mb-10">
-        <h2 class="text-2xl mb-4">Philosophy</h2>
+        <h2 class="section-title mb-4">Philosophy</h2>
         <p class="mb-4">
           I believe good education should:
         </p>
@@ -70,7 +113,7 @@ const builtProjects = projects as ProjectCard[];
       <hr class="my-10 bg-gray-200" />
 
       <div class="mb-12">
-        <h2 class="text-2xl mb-4">Things I've Built</h2>
+        <h2 class="section-title mb-4">Things I've Built</h2>
         <p class="mb-6">
           A few side projects and products I've built using AI-first, vibe coding workflows.
         </p>
@@ -83,7 +126,7 @@ const builtProjects = projects as ProjectCard[];
               class="relative group flex items-center gap-4 py-4 px-4 pr-12 rounded-lg border border-border hover:bg-muted/50 transition-colors duration-300 ease-in-out animate-fade-in"
               style={`animation-delay: ${index * 100}ms;`}
             >
-              <div class="w-32 h-20 md:w-36 md:h-24 rounded-lg border border-border bg-muted/40 shrink-0 overflow-hidden">
+              <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg border border-border bg-muted/40 shrink-0 overflow-hidden">
                 {project.thumbnailImage ? (
                   <img
                     src={project.thumbnailImage}
@@ -93,7 +136,7 @@ const builtProjects = projects as ProjectCard[];
                 ) : null}
               </div>
               <div class="flex-1 min-w-0">
-                <div class="font-semibold text-foreground mb-1 line-clamp-1 text-lg">{project.title}</div>
+                <div class="font-semibold text-foreground line-clamp-1 text-lg">{project.title}</div>
                 <div class="text-base text-muted-foreground line-clamp-2">{project.description}</div>
               </div>
               <span
@@ -111,7 +154,7 @@ const builtProjects = projects as ProjectCard[];
 
 
       <div class="mb-12">
-        <h2 class="text-2xl mb-6">Experience</h2>
+        <h2 class="section-title mb-6">Experience</h2>
         <div class="space-y-8">
           <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
             <div class="md:col-span-1">
@@ -211,48 +254,10 @@ const builtProjects = projects as ProjectCard[];
       <hr class="my-10 bg-gray-200" />
 
     </div>
-
-      <p class="mb-4">
-        Outside of work, I play chess, read obsessively, and explore ideas across disciplines. I keep my world small and intentional - which leaves more room for depth. I also enjoy writing about my experiences and
-        thoughts on my social handles. Do connect with me there!
-      </p>
-      
-    <div class="flex space-x-6">
-      <a href="mailto:me@nehal.work" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Email">
-        EMAIL
-      </a>
-      <a
-        href="https://peerlist.io/nehal"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-muted-foreground hover:text-primary transition-colors"
-        aria-label="Peerlist"
-      >
-        PEERLIST
-      </a>
-      <a
-        href="https://linkedin.com/in/nehaljoshi"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-muted-foreground hover:text-primary transition-colors"
-        aria-label="LinkedIn"
-      >
-        LINKEDIN
-      </a>
-      <a
-        href="https://x.com/nehalmax"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-muted-foreground hover:text-primary transition-colors"
-        aria-label="X (formerly Twitter)"
-      >
-        X
-      </a>
-    </div>
   </section>
 
-  <section class="py-10">
-    <h2 class="mb-8">Latest Posts</h2>
+  <section class="pt-0 pb-6">
+    <h2 class="section-title mb-6">Latest Posts</h2>
     {latestArticles.length === 0 ? (
       <div class="py-8 text-center">
         <p class="text-muted-foreground">No notes available yet</p>
@@ -273,19 +278,16 @@ const builtProjects = projects as ProjectCard[];
       </div>
     )}
 
-    <div class="mt-10">
+    <div class="mt-8">
       <a href="/notes" class="inline-flex items-center text-primary hover:underline">
         View all notes <span class="ml-2">→</span>
       </a>
     </div>
-  </section>
 
-   <div class="w-full h-auto mt-10 overflow-hidden">
-    <img
-      src="/nehal-talking.jpeg"
-      alt="Nehal Joshi speaking at an event"
-      class="w-full object-cover rounded-md"
-    />
-  </div>
+    <hr class="my-10 bg-gray-200" />
+
+    <PhotoBento />
+
+  </section>
  
 </BaseLayout>
