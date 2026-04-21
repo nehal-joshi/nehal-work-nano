@@ -5,19 +5,15 @@ const navItems = [
 ];
 ---
 
-<header class="w-full py-6 border-b border-border animate-fade-in">
-  <div class="flex flex-col md:flex-row md:items-center md:justify-between">
-    <div class="mb-4 md:mb-0">
-      <a href="/" class="inline-block">
-        <h1 class="text-base font-semibold">Nehal Joshi</h1>
-      </a>
-    </div>
+<header class="w-full py-5 animate-fade-in">
+  <div class="flex flex-row items-center justify-between">
+    <a href="/" class="inline-block text-sm font-semibold hover:text-foreground transition-colors">Nehal Joshi</a>
     <nav>
-      <ul class="flex items-center space-x-6">
+      <ul class="flex items-center gap-4">
         {navItems.map((item) => (
           <li>
-            <a href={item.path} class:list={['navbar-item', pathname === item.path && 'active']}>
-              {item.name}
+            <a href={item.path} class:list={['text-sm text-muted-foreground hover:text-foreground transition-colors underline underline-offset-4 decoration-1', pathname === item.path && 'text-foreground']}>
+              {item.name.toLowerCase()}
             </a>
           </li>
         ))}

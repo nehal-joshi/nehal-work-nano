@@ -21,11 +21,16 @@ const photoItems = [
 ].filter(Boolean) as PhotoItem[];
 ---
 
-<div class="mb-12">
-  <h2 class="section-title mb-4">Photography</h2>
-  <p class="mb-6">
-    Street photography as a way to notice the quiet, unfiltered moments of everyday life. 
-  </p>
+<div class="space-y-5">
+  <div class="space-y-1">
+    <div class="flex flex-wrap gap-y-1 items-center justify-between">
+      <h2 class="text-base font-semibold text-foreground">Photography</h2>
+      <a href="https://www.flickr.com/photos/nehaljoshi/" target="_blank" rel="noopener noreferrer" class="text-sm text-muted-foreground underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">See more</a>
+    </div>
+    <p class="text-sm text-muted-foreground">
+      Street photography — noticing the quiet, unfiltered moments of everyday life.
+    </p>
+  </div>
 
   <div class="bento-grid bento-grid--fixed">
     {photoItems.map((photo, i) => (
@@ -51,11 +56,4 @@ const photoItems = [
       </a>
     ))}
   </div>
-
-  <div class="mt-8">
-    <a href="https://www.flickr.com/photos/nehaljoshi/" class="inline-flex items-center text-primary hover:underline">
-      View more photos <span class="ml-2">→</span>
-    </a>
-  </div>
-
 </div>

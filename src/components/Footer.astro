@@ -2,85 +2,14 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="w-full py-10 mt-20 border-t border-border animate-fade-in">
-  <div class="flex flex-col md:flex-row justify-between items-center">
-    <div class="flex items-center space-x-6 mb-4 md:mb-0">
-      <a
-        href="mailto:me@nehal.work"
-        class="text-muted-foreground hover:text-primary transition-colors"
-        aria-label="Email"
-      >
-        <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M4 6h16v12H4z" />
-          <path d="m4 7 8 6 8-6" />
-        </svg>
-      </a>
-      <a
-        href="https://peerlist.io/nehal"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-muted-foreground hover:text-primary transition-colors"
-        aria-label="Peerlist"
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          stroke-width="1.5"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-5 w-5"
-        >
-          <path
-            d="M8.87026 3H15.1297C18.187 3 20.7554 5.29881 21.093 8.33741L21.3037 10.2331C21.4342 11.4074 21.4342 12.5926 21.3037 13.7669L21.093 15.6626C20.7554 18.7012 18.187 21 15.1297 21H8.87026C5.81296 21 3.24458 18.7012 2.90695 15.6626L2.69632 13.7669C2.56584 12.5926 2.56584 11.4074 2.69632 10.2331L2.90695 8.33741C3.24458 5.29881 5.81296 3 8.87026 3Z"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M9 17L9 13M9 13L9 7L13 7C14.6569 7 16 8.34315 16 10V10C16 11.6569 14.6569 13 13 13L9 13Z"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </a>
-      <a
-        href="https://linkedin.com/in/nehaljoshi"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-muted-foreground hover:text-primary transition-colors"
-        aria-label="LinkedIn"
-      >
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path
-            d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 5 2.12 4.98 3.5zM0 8h5v16H0zM8 8h4.8v2.2h.1c.7-1.2 2.4-2.5 4.9-2.5 5.2 0 6.2 3.4 6.2 7.8V24h-5v-7.6c0-1.8 0-4.2-2.6-4.2s-3 2-3 4.1V24H8z"
-          />
-        </svg>
-      </a>
-      <a
-        href="https://x.com/nehalmax"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-muted-foreground hover:text-primary transition-colors"
-        aria-label="X (formerly Twitter)"
-      >
-        <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M18.244 2H21l-6.52 7.455L22.143 22h-6.01l-4.71-6.153L6.04 22H3.28l6.97-7.965L2 2h6.163l4.257 5.583zM17.28 20h1.53L7.333 3.895H5.69z" />
-        </svg>
-      </a>
-    </div>
-    <div class="mb-4 md:mb-0 order-3 md:order-2">
-      <p class="text-sm text-muted-foreground">
-        © {currentYear} Nehal Joshi.
-      </p>
-    </div>
-    <nav class="order-2 md:order-3">
-      <ul class="flex space-x-6">
-        <li><a href="/" class="footer-nav-item">Home</a></li>
-        <li><a href="/notes" class="footer-nav-item">Notes</a></li>
+<footer class="w-full py-5 text-sm text-muted-foreground animate-fade-in">
+  <div class="flex flex-wrap items-center justify-between gap-y-2">
+    <p>© {currentYear} Nehal Joshi</p>
+    <nav>
+      <ul class="flex items-center gap-3">
+        <li><a href="/" class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">home</a></li>
+        <li aria-hidden="true">/</li>
+        <li><a href="/notes" class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">notes</a></li>
       </ul>
     </nav>
   </div>

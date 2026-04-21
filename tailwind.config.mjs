@@ -79,16 +79,13 @@ export default {
         'fade-out': 'fade-out 0.3s ease-out',
       },
       fontFamily: {
-        raleway: ['Raleway', 'sans-serif'],
-        'work-sans': ['"Work Sans"', 'sans-serif'],
-        georgia: ['Georgia', 'serif'],
+        sans: ['Geist', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        serif: ['"IBM Plex Serif"', 'Georgia', 'serif'],
       },
       typography: {
         DEFAULT: {
           css: {
-            body: {
-              fontFamily: 'Georgia, serif',
-            },
+            fontFamily: '"IBM Plex Serif", Georgia, serif',
             a: {
               color: 'hsl(var(--primary))',
               textDecoration: 'none',

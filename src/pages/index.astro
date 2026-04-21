@@ -39,6 +39,21 @@ type ProjectCard = {
 };
 
 const builtProjects = projects as ProjectCard[];
+
+type ExperienceEntry = {
+  role: string;
+  organisation: string;
+  range: string;
+};
+
+const experience: ExperienceEntry[] = [
+  { role: 'Founder & Chief Educator', organisation: 'Lernok', range: '2025 — Present' },
+  { role: 'Independent Consultant', organisation: 'Various organisations', range: '2023 — Present' },
+  { role: 'Co-founder', organisation: 'Reskill School', range: '2021 — 2023' },
+  { role: 'Head of Academics and Design', organisation: 'ICT360, MindBox', range: '2013 — 2021' },
+  { role: 'Guest Faculty (Digital Design)', organisation: "DSK-Rubika Int'l School of Design", range: '2012 — 2014' },
+  { role: 'Co-founder', organisation: 'Chapter Sixteen', range: '2010 — 2012' },
+];
 ---
 
 <BaseLayout
@@ -46,271 +61,137 @@ const builtProjects = projects as ProjectCard[];
   description="Nehal Joshi is an education product leader, designer, and founder of Lernok, building AI-native learning products that teach coding, design, and first-principles thinking."
   structuredData={personSchema}
 >
-  <section class="py-4 md:py-6">
-    <div class="flex flex-col items-start gap-6 max-w-3xl">
-      <div class="mb-6 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-muted shrink-0">
-        <a href="/nehal-joshi-pfp.jpg" target="_blank" rel="noopener noreferrer">
-          <img
-            src="/nehal-joshi-pfp.jpg"
-            alt="Nehal Joshi"
-            class="w-full h-full object-cover"
-          />
-        </a>
+  <div class="space-y-14 md:space-y-16">
+    <section class="space-y-5">
+      <div class="flex flex-row items-center gap-4">
+        <div class="w-12 h-12 rounded-full overflow-hidden shrink-0">
+          <a href="/nehal-joshi-pfp.jpg" target="_blank" rel="noopener noreferrer">
+            <img src="/nehal-small-pfp.jpg" alt="Nehal Joshi" class="w-full h-full object-cover" />
+          </a>
+        </div>
+        <div>
+          <h1 class="text-2xl md:text-[1.75rem] font-semibold leading-[var(--leading-heading)] text-foreground">Nehal Joshi</h1>
+          <p class="text-sm text-muted-foreground">Educator · Designer · Builder</p>
+        </div>
       </div>
-      <div>
-        <h1 class="mb-6">
-          Educator, Designer, Builder.
-        </h1>
-        <p class="text-xl mb-4 text-muted-foreground">
-          I build learning products that teach people how to think. Grounded in first principles and driven by curiosity.
-        </p>
+      <p class="text-lg text-foreground leading-[var(--leading-body)]">
+        I build learning products that teach people how to think. Grounded in first principles and driven by curiosity.
+      </p>
+    </section>
+
+    <section class="space-y-4 text-foreground/90">
+      <p>
+        For 15 years I've been designing how people learn — from building K-12 ICT curricula used in 200+ schools by over 200,000 students worldwide, to running digital literacy programs for senior citizens.
+      </p>
+      <p>
+        Today I'm building <a href="https://lernok.com/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-1 hover:text-primary">Lernok</a>, an edtech platform that teaches kids to become builders using first-principles thinking, preparing them for an AI-native world.
+      </p>
+      <p>
+        Outside of work, I play chess, read obsessively, do street <a href="https://flickr.com/photos/nehaljoshi/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-1 hover:text-primary">photography</a> with my Fujifilm cameras, and explore ideas across disciplines.
+      </p>
+    </section>
+
+    <section class="space-y-3">
+      <h2 class="text-base font-semibold text-foreground">Guiding Principle</h2>
+      <p class="text-foreground/90">
+        Good education should start with first principles, where fundamentals come before tools. It should encourage curiosity and experimentation, connect ideas to real-world problems, and stay accessible to anyone willing to learn.
+      </p>
+    </section>
+
+    <section class="space-y-5">
+      <div class="flex flex-wrap gap-y-1 items-center justify-between">
+        <h2 class="text-base font-semibold text-foreground">Writing</h2>
+        <a href="/notes" class="text-sm text-muted-foreground underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">See all notes</a>
       </div>
-    </div>
-
-    <div class="mb-10">
-      <br />
-      <p class="mb-4">
-        For 15 years I've been designing how people learn - from building K-12 ICT curricula used in 200+ schools by over 200,000 students worldwide, to running digital literacy programs for senior citizens.
-      </p>
-      <p class="mb-4">
-        Today I'm building <a href="https://lernok.com/" target="_blank" rel="noopener noreferrer" class="font-bold no-underline"><strong>Lernok</strong></a>, an edtech platform that teaches kids to become builders using first-principles thinking, preparing them for an AI-native world.
-      </p>
-
-
-
-      <p class="mb-4">
-        Outside of work, I play chess, read obsessively, do street <a href="https://flickr.com/photos/nehaljoshi/" target="_blank" rel="noopener noreferrer" class="font-bold no-underline"><strong>photography</strong></a> with my Fujifilm cameras, and explore ideas across disciplines.
-      </p>
-      <p class="mb-4">
-        I write about what I'm thinking on my social handles. Follow along if any of this resonates:
-      </p>
-      
-      <div class="flex space-x-6">
-        <a href="mailto:me@nehal.work" class="text-muted-foreground underline decoration-current hover:text-primary transition-colors" aria-label="Email">
-          EMAIL
-        </a>
-        <a
-          href="https://peerlist.io/nehal"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-muted-foreground underline decoration-current hover:text-primary transition-colors"
-          aria-label="Peerlist"
-        >
-          PEERLIST
-        </a>
-        <a
-          href="https://linkedin.com/in/nehaljoshi"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-muted-foreground underline decoration-current hover:text-primary transition-colors"
-          aria-label="LinkedIn"
-        >
-          LINKEDIN
-        </a>
-        <a
-          href="https://x.com/nehalmax"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-muted-foreground underline decoration-current hover:text-primary transition-colors"
-          aria-label="X (formerly Twitter)"
-        >
-          X
-        </a>
-      </div>
-
-      <hr class="my-10 bg-gray-200" />
-
-      <div class="mb-10">
-        <h2 class="section-title mb-4">Philosophy</h2>
-        <p class="mb-4">
-          I believe good education should:
-        </p>
-        <ul class="list-disc pl-6 mb-4 space-y-2">
-          <li>Start with first principles - understand the fundamentals before the tools</li>
-          <li>Encourage curiosity and experimentation</li>
-          <li>Connect ideas to real-world problems</li>
-          <li>Be accessible to anyone willing to learn</li>
+      {latestArticles.length === 0 ? (
+        <p class="text-muted-foreground">No notes available yet.</p>
+      ) : (
+        <ul class="flex flex-col gap-4">
+          {latestArticles.map((article, index) => (
+            <li>
+              <ArticleCard
+                article={{
+                  slug: article.id.replace(/\.(md|mdx)$/i, ''),
+                  title: article.data.title,
+                  excerpt: article.data.description,
+                  date: article.data.pubDate,
+                }}
+                index={index}
+              />
+            </li>
+          ))}
         </ul>
-      </div>
+      )}
+    </section>
 
-      <hr class="my-10 bg-gray-200" />
-
-      <div class="mb-12">
-        <h2 class="section-title mb-4">Things I've Built</h2>
-        <p class="mb-6">
-          A few side projects and products I've built using AI-first, vibe coding workflows.
+    <section class="space-y-5">
+      <div class="space-y-1">
+        <h2 class="text-base font-semibold text-foreground">Things I've Built</h2>
+        <p class="text-sm text-muted-foreground">
+          A few side projects built using AI-first, vibe coding workflows.
         </p>
-        <div class="grid gap-4">
-          {builtProjects.map((project, index) => (
+      </div>
+      <ul class="flex flex-col gap-4">
+        {builtProjects.map((project, index) => (
+          <li>
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              class="relative group flex items-center gap-4 py-4 px-4 pr-12 rounded-lg border border-border hover:bg-muted/50 transition-colors duration-300 ease-in-out animate-fade-in"
-              style={`animation-delay: ${index * 100}ms;`}
+              class="group flex items-center gap-4 animate-fade-in"
+              style={`animation-delay: ${index * 60}ms;`}
             >
-              <div class="w-8 h-8 md:w-10 md:h-10 rounded-lg border border-border bg-muted/40 shrink-0 overflow-hidden">
+              <span class="w-8 h-8 rounded-md overflow-hidden bg-muted shrink-0">
                 {project.thumbnailImage ? (
-                  <img
-                    src={project.thumbnailImage}
-                    alt={`${project.title} thumbnail`}
-                    class="w-full h-full object-cover"
-                  />
+                  <img src={project.thumbnailImage} alt="" class="w-full h-full object-cover" />
                 ) : null}
-              </div>
-              <div class="flex-1 min-w-0">
-                <div class="font-semibold text-foreground line-clamp-1 text-lg">{project.title}</div>
-                <div class="text-base text-muted-foreground line-clamp-2">{project.description}</div>
-              </div>
-              <span
-                class="absolute top-1/2 right-3 -translate-y-1/2 text-muted-foreground group-hover:text-primary transition-all duration-300 ease-in-out transform translate-x-1 group-hover:translate-x-0"
-                aria-hidden="true"
-              >
-                →
               </span>
+              <span class="flex-1 min-w-0">
+                <span class="block font-medium text-foreground group-hover:underline underline-offset-4 decoration-1">{project.title}</span>
+                <span class="block text-sm text-muted-foreground line-clamp-1">{project.description}</span>
+              </span>
+              <span class="shrink-0 text-xs text-muted-foreground" aria-hidden="true">↗</span>
             </a>
-          ))}
-        </div>
-      </div>
-
-      <hr class="my-10 bg-gray-200" />
-
-
-      <div class="mb-12">
-        <h2 class="section-title mb-6">Experience</h2>
-        <div class="space-y-8">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
-            <div class="md:col-span-1">
-              <h3 class="text-lg font-semibold">Founder & Chief Educator</h3>
-              <p class="text-muted-foreground">Lernok</p>
-              <p class="text-sm text-muted-foreground">2025 - Present</p>
-            </div>
-            <div class="md:col-span-2">
-              <ul class="list-disc pl-4 space-y-2">
-                <li>Building Lernok - A first principles AI-native tech learning platform for ages 10-16</li>
-                <li>
-                  A next-gen program that builds foundational skills in AI, coding, design, data science, and
-                  entrepreneurship
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
-            <div class="md:col-span-1">
-              <h3 class="text-lg font-semibold">Independent Consultant</h3>
-              <p class="text-muted-foreground">Various Organizations</p>
-              <p class="text-sm text-muted-foreground">2023 - Present</p>
-            </div>
-            <div class="md:col-span-2">
-              <ul class="list-disc pl-4 space-y-2">
-                <li>Advising on curriculum development and program design to an EdTech startup</li>
-                <li>Directed product and growth strategy for a D2C startup</li>
-                <li>Conducting in-depth analysis of marketing and sales data to uncover insights</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
-            <div class="md:col-span-1">
-              <h3 class="text-lg font-semibold">Co-founder</h3>
-              <p class="text-muted-foreground">Reskill School</p>
-              <p class="text-sm text-muted-foreground">2021 - 2023</p>
-            </div>
-            <div class="md:col-span-2">
-              <ul class="list-disc pl-4 space-y-2">
-                <li>Designed comprehensive tech-learning programs for senior citizens and middlers</li>
-                <li>Spearheaded the development of product from concept to MVP</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
-            <div class="md:col-span-1">
-              <h3 class="text-lg font-semibold">Head Academics and Design</h3>
-              <p class="text-muted-foreground">ICT360, MindBox</p>
-              <p class="text-sm text-muted-foreground">2013 - 2021</p>
-            </div>
-            <div class="md:col-span-2">
-              <ul class="list-disc pl-4 space-y-2">
-                <li>Led development of K12 ICT curriculum reaching 200,000+ students</li>
-                <li>Designed a data-driven skill development framework</li>
-                <li>Led a team of instructional designers, engineers, desingers, educators, and social scientists</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
-            <div class="md:col-span-1">
-              <h3 class="text-lg font-semibold">Guest Faculty (Digital Design)</h3>
-              <p class="text-muted-foreground">DSK-Rubika Int'l School of Design</p>
-              <p class="text-sm text-muted-foreground">2012 - 2014</p>
-            </div>
-            <div class="md:col-span-2">
-              <ul class="list-disc pl-4 space-y-2">
-                <li>Taught digital design and visualization to industrial design graduates</li>
-                <li>Mentored and guided students on digital product design projects and portfolios</li>
-                <li>Jury for final year product design projects</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-2 md:gap-8">
-            <div class="md:col-span-1">
-              <h3 class="text-lg font-semibold">Co-founder</h3>
-              <p class="text-muted-foreground">Chapter Sixteen</p>
-              <p class="text-sm text-muted-foreground">2010 - 2012</p>
-            </div>
-            <div class="md:col-span-2">
-              <ul class="list-disc pl-4 space-y-2">
-                <li>
-                  As head of studio, delivered design projects focused on branding, web, mobile, visualization, and
-                  animation
-                </li>
-                <li>Designed brand identity and launched first website for Eruditus</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <hr class="my-10 bg-gray-200" />
-
-    </div>
-  </section>
-
-  <section class="pt-0 pb-6">
-    <h2 class="section-title mb-6">Latest Posts</h2>
-    {latestArticles.length === 0 ? (
-      <div class="py-8 text-center">
-        <p class="text-muted-foreground">No notes available yet</p>
-      </div>
-    ) : (
-      <div class="grid gap-4">
-        {latestArticles.map((article, index) => (
-          <ArticleCard
-            article={{
-              slug: article.id.replace(/\.(md|mdx)$/i, ''),
-              title: article.data.title,
-              excerpt: article.data.description,
-              date: article.data.pubDate,
-            }}
-            index={index}
-          />
+          </li>
         ))}
-      </div>
-    )}
+      </ul>
+    </section>
 
-    <div class="mt-8">
-      <a href="/notes" class="inline-flex items-center text-primary hover:underline">
-        View all notes <span class="ml-2">→</span>
-      </a>
-    </div>
+    <section>
+      <PhotoBento />
+    </section>
 
-    <hr class="my-10 bg-gray-200" />
+    <section class="space-y-5">
+      <h2 class="text-base font-semibold text-foreground">Experience</h2>
+      <ol class="flex flex-col gap-4">
+        {experience.map((entry) => (
+          <li class="flex items-baseline justify-between gap-4">
+            <span class="min-w-0">
+              <span class="block font-medium text-foreground">{entry.role}</span>
+              <span class="block text-sm text-muted-foreground">{entry.organisation}</span>
+            </span>
+            <time class="shrink-0 text-xs text-muted-foreground tabular-nums">{entry.range}</time>
+          </li>
+        ))}
+      </ol>
+    </section>
 
-    <PhotoBento />
-
-  </section>
- 
+    <section class="space-y-3">
+      <h2 class="text-base font-semibold text-foreground">Let's Connect</h2>
+      <p>
+        If you want to say hi, talk learning, or trade photography notes, reach out on any of these.
+      </p>
+      <ul class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
+        <li><a href="mailto:me@nehal.work" class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">email</a></li>
+        <li aria-hidden="true" class="text-muted-foreground">/</li>
+        <li><a href="https://peerlist.io/nehal" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">peerlist</a></li>
+        <li aria-hidden="true" class="text-muted-foreground">/</li>
+        <li><a href="https://linkedin.com/in/nehaljoshi" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">linkedin</a></li>
+        <li aria-hidden="true" class="text-muted-foreground">/</li>
+        <li><a href="https://x.com/nehalmax" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">x</a></li>
+        <li aria-hidden="true" class="text-muted-foreground">/</li>
+        <li><a href="https://www.flickr.com/photos/nehaljoshi/" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">flickr</a></li>
+      </ul>
+    </section>
+  </div>
 </BaseLayout>

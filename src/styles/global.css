@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Work+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,25 +7,44 @@
 @layer base {
   :root {
     --background: 0 0% 100%;
-    --foreground: 220 20% 10%;
+    --foreground: 220 20% 12%;
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 10%;
+    --card-foreground: 220 20% 12%;
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 10%;
-    --primary: 220 15% 20%;
+    --popover-foreground: 220 20% 12%;
+    --primary: 220 15% 18%;
     --primary-foreground: 0 0% 98%;
     --secondary: 220 5% 96%;
-    --secondary-foreground: 220 15% 20%;
-    --muted: 220 5% 96%;
-    --muted-foreground: 220 10% 50%;
-    --accent: 220 5% 96%;
-    --accent-foreground: 220 15% 20%;
+    --secondary-foreground: 220 15% 18%;
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 220 10% 96%;
+    --accent-foreground: 220 15% 18%;
     --destructive: 0 70% 60%;
     --destructive-foreground: 0 0% 98%;
     --border: 220 10% 90%;
     --input: 220 10% 90%;
-    --ring: 220 15% 20%;
+    --ring: 220 15% 18%;
     --radius: 0.25rem;
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+
+    --leading-body: 1.7;
+    --leading-heading: 1.2;
+    --tracking-tight: -0.01em;
+    --tracking-label: 0.08em;
+
+    --space-section-desktop: 4rem;
+    --space-section-mobile: 2.5rem;
+    --space-block: 1.5rem;
+    --space-tight: 0.5rem;
   }
 }
 
@@ -35,41 +54,46 @@
   }
 
   body {
-    @apply bg-background text-foreground font-work-sans;
+    @apply bg-background font-sans antialiased;
+    color: hsl(var(--foreground) / 0.75);
+    font-size: var(--text-base);
+    line-height: var(--leading-body);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-raleway font-medium leading-tight;
+    @apply font-sans;
+    font-weight: 500;
+    line-height: var(--leading-heading);
   }
 
   h1 {
-    @apply text-2xl md:text-3xl font-semibold;
+    font-size: var(--text-3xl);
+    font-weight: 600;
+    letter-spacing: var(--tracking-tight);
   }
 
   h2 {
-    @apply text-xl md:text-2xl;
+    font-size: var(--text-2xl);
   }
 
   h3 {
-    @apply text-lg md:text-xl;
+    font-size: var(--text-lg);
   }
 
   h4 {
-    @apply text-lg md:text-xl;
+    font-size: var(--text-base);
   }
 
   p {
-    @apply leading-relaxed;
-  }
-
-  .container {
-    @apply px-4 md:px-6 mx-auto max-w-5xl;
+    line-height: var(--leading-body);
   }
 }
 
 @layer components {
   .navbar-item {
-    @apply inline-flex relative px-2 py-1 font-medium text-xs uppercase cursor-pointer transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[2px] after:bg-primary after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform;
+    @apply inline-flex relative px-2 py-1 font-medium uppercase cursor-pointer transition-colors hover:text-primary after:absolute after:bottom-0 after:left-0 after:right-0 after:h-[1px] after:bg-primary after:origin-bottom-right after:scale-x-0 hover:after:origin-bottom-left hover:after:scale-x-100 after:transition-transform;
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-label);
   }
 
   .navbar-item.active {
@@ -77,17 +101,27 @@
   }
 
   .footer-nav-item {
-    @apply font-medium text-xs uppercase text-muted-foreground hover:text-primary transition-colors;
+    @apply font-medium uppercase text-muted-foreground hover:text-primary transition-colors;
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-label);
   }
 
   .section-title {
-    @apply text-sm uppercase tracking-wide text-muted-foreground font-semibold;
+    @apply uppercase text-muted-foreground font-semibold;
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-label);
+  }
+
+  .meta-label {
+    @apply uppercase text-muted-foreground;
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-label);
   }
 }
 
 .prose a {
   font-weight: 500;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 .prose a:hover {
@@ -97,7 +131,7 @@
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
+  gap: 8px;
   width: 100%;
   max-width: 860px;
   align-items: start;
@@ -106,8 +140,8 @@
 .bento-cell {
   display: block;
   overflow: hidden;
-  border-radius: 8px;
-  border: 1px solid hsl(var(--border));
+  border-radius: 6px;
+  border: 1px solid hsl(var(--border) / 0.6);
   background: hsl(var(--muted) / 0.4);
   width: 100%;
 }
@@ -132,8 +166,8 @@
   align-items: end;
   padding: 0.75rem;
   color: hsl(var(--muted-foreground));
-  font-size: 0.75rem;
-  letter-spacing: 0.04em;
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
 }
 
@@ -146,25 +180,11 @@
     "slot5 slot5 slot5 slot4";
 }
 
-.bento-grid--fixed .bento-slot-1 {
-  grid-area: slot1;
-}
-
-.bento-grid--fixed .bento-slot-2 {
-  grid-area: slot2;
-}
-
-.bento-grid--fixed .bento-slot-3 {
-  grid-area: slot3;
-}
-
-.bento-grid--fixed .bento-slot-4 {
-  grid-area: slot4;
-}
-
-.bento-grid--fixed .bento-slot-5 {
-  grid-area: slot5;
-}
+.bento-grid--fixed .bento-slot-1 { grid-area: slot1; }
+.bento-grid--fixed .bento-slot-2 { grid-area: slot2; }
+.bento-grid--fixed .bento-slot-3 { grid-area: slot3; }
+.bento-grid--fixed .bento-slot-4 { grid-area: slot4; }
+.bento-grid--fixed .bento-slot-5 { grid-area: slot5; }
 
 .bento-grid--fixed .bento-cell {
   height: 100%;
