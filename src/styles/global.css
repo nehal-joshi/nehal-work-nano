@@ -131,9 +131,8 @@
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 8px;
+  gap: 6px;
   width: 100%;
-  max-width: 860px;
   align-items: start;
 }
 
@@ -173,11 +172,13 @@
 
 .bento-grid--fixed {
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr) minmax(0, 0.9fr) minmax(0, 1.2fr);
-  grid-template-rows: repeat(3, minmax(0, 170px));
+  grid-template-rows: repeat(3, minmax(0, 110px));
   grid-template-areas:
     "slot1 slot2 slot2 slot2"
     "slot1 slot3 slot3 slot4"
     "slot5 slot5 slot5 slot4";
+  max-width: 100%;
+  margin-inline: 0;
 }
 
 .bento-grid--fixed .bento-slot-1 { grid-area: slot1; }
@@ -191,13 +192,14 @@
   min-height: 0;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 640px) {
   .bento-grid,
   .bento-grid--fixed {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     grid-template-rows: none;
     grid-template-areas: none;
     grid-auto-rows: auto;
+    gap: 4px;
   }
 
   .bento-grid--fixed .bento-slot-1,
@@ -209,17 +211,7 @@
   }
 
   .bento-grid--fixed .bento-cell {
-    aspect-ratio: 4 / 3;
-  }
-}
-
-@media (max-width: 480px) {
-  .bento-grid,
-  .bento-grid--fixed {
-    grid-template-columns: 1fr;
-  }
-
-  .bento-grid--fixed .bento-cell {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 1 / 1;
+    height: auto;
   }
 }
