@@ -2,7 +2,7 @@
 title: "What Schools Don't Teach About AI"
 description: "Schools are using AI to help kids learn better. But the job market is asking a completely different question."
 pubDate: 2026-04-22
-coverImage: "https://mbgavbtrrqgsqqdhkpmx.supabase.co/storage/v1/object/public/article-images/what-schools-dont-teach-ai.jpg"
+coverImage: "https://mbgavbtrrqgsqqdhkpmx.supabase.co/storage/v1/object/public/article-images/schools-dont-teach-ai.png"
 ---
 A recent Anthropic report looked at how AI is already affecting jobs. The finding that stuck with me: "hiring for recent college graduates in AI-exposed roles has dropped about 14% compared to pre-ChatGPT days."
 
@@ -25,11 +25,14 @@ I've been designing how people learn for 15 years. And I keep seeing the same pa
 
 Same tools. Completely different relationship with them.
 
-Consumption mode is a child asking AI a question, getting an answer, moving on. Creation mode is a 9-year-old using ChatGPT voice to build a game that teaches their sibling the alphabet. A 13-year-old building a data dashboard with Claude to track something they actually care about. A 16-year-old shipping a real app using no-code tools and AI to fill in the gaps.
+- Consumption mode is a child asking AI a question, getting an answer, moving on.
+- Creation mode is a 9-year-old using ChatGPT voice to build a game that teaches their sibling basic math.
+- A 13-year-old building a data dashboard with Claude to track something they actually care about.
+- A 16-year-old shipping a real app using no-code tools and AI to fill in the gaps.
 
 The question isn't whether your child can use AI. It's whether your child can build something with AI that didn't exist before. 😊
 
-**What teachers and parents can actually do**
+**What teachers and parents can actually do?**
 
 One move for teachers: replace one project a term. Instead of "use AI to research this topic", make it "use AI to build something about this topic." Not a report. Not a summary. A thing - can be a game, a tool, a prototype. Something that required a decision, a mistake, and a revision. That single shift moves a classroom from Enhancement to Redefinition in the SAMR model. Same tools, different prompt to the class.
 
