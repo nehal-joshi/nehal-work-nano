@@ -182,7 +182,16 @@ const experience: ExperienceEntry[] = [
         If you want to say hi, talk learning, or trade photography notes, reach out on any of these.
       </p>
       <ul class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-        <li><a href="mailto:nehal@lernok.com" class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">email</a></li>
+        <li>
+          <button
+            type="button"
+            class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors cursor-pointer bg-transparent border-0 p-0 font-inherit text-inherit"
+            aria-label="Copy nehal@lernok.com to clipboard"
+            data-copy-email
+          >
+            nehal@lernok.com
+          </button>
+        </li>
         <li aria-hidden="true" class="text-muted-foreground">/</li>
         <li><a href="https://peerlist.io/nehal" target="_blank" rel="noopener noreferrer" class="underline underline-offset-4 decoration-1 hover:text-foreground transition-colors">peerlist</a></li>
         <li aria-hidden="true" class="text-muted-foreground">/</li>
@@ -194,4 +203,35 @@ const experience: ExperienceEntry[] = [
       </ul>
     </section>
   </div>
+  <p
+    id="copy-email-toast"
+    class="pointer-events-none fixed bottom-8 left-1/2 z-50 -translate-x-1/2 rounded-md bg-muted px-2.5 py-1 text-xs text-muted-foreground opacity-0 transition-opacity duration-200 ease-out"
+    role="status"
+    aria-live="polite"
+    aria-hidden="true"
+  ></p>
+  <script is:inline>
+    (function () {
+      const btn = document.querySelector('[data-copy-email]');
+      const toast = document.getElementById('copy-email-toast');
+      if (!btn || !toast) return;
+      let hideTimer = 0;
+      btn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText('nehal@lernok.com');
+          window.clearTimeout(hideTimer);
+          toast.textContent = 'Email Copied';
+          toast.classList.add('opacity-100');
+          toast.setAttribute('aria-hidden', 'false');
+          hideTimer = window.setTimeout(() => {
+            toast.classList.remove('opacity-100');
+            toast.setAttribute('aria-hidden', 'true');
+            toast.textContent = '';
+          }, 1600);
+        } catch {
+          /* Clipboard API unavailable or permission denied */
+        }
+      });
+    })();
+  </script>
 </BaseLayout>
