@@ -40,20 +40,6 @@ type ProjectCard = {
 
 const builtProjects = projects as ProjectCard[];
 
-type ExperienceEntry = {
-  role: string;
-  organisation: string;
-  range: string;
-};
-
-const experience: ExperienceEntry[] = [
-  { role: 'Founder & Chief Educator', organisation: 'Lernok', range: '2025 — Present' },
-  { role: 'Independent Consultant', organisation: 'Various organisations', range: '2023 — Present' },
-  { role: 'Co-founder', organisation: 'Reskill School', range: '2021 — 2023' },
-  { role: 'Head of Academics and Design', organisation: 'ICT360, MindBox', range: '2013 — 2021' },
-  { role: 'Guest Faculty (Digital Design)', organisation: "DSK-Rubika Int'l School of Design", range: '2012 — 2014' },
-  { role: 'Co-founder', organisation: 'Chapter Sixteen', range: '2010 — 2012' },
-];
 ---
 
 <BaseLayout
@@ -161,7 +147,7 @@ const experience: ExperienceEntry[] = [
       <PhotoBento />
     </section>
 
-    <section class="space-y-5">
+    {/* <section class="space-y-5">
       <h2 class="text-base font-semibold text-foreground">Experience</h2>
       <ol class="flex flex-col gap-4">
         {experience.map((entry) => (
@@ -174,7 +160,7 @@ const experience: ExperienceEntry[] = [
           </li>
         ))}
       </ol>
-    </section>
+    </section> */}
 
     <section class="space-y-3">
       <h2 class="text-base font-semibold text-foreground">Let's Connect</h2>

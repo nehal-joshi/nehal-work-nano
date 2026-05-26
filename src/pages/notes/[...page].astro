@@ -3,9 +3,14 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+export async function getStaticPaths({ paginate }) {
+  const posts = (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  );
+  return paginate(posts, { pageSize: 10 });
+}
+
+const { page } = Astro.props;
 const notesUrl = new URL('/notes', Astro.site).toString();
 const collectionSchema = {
   '@context': 'https://schema.org',
@@ -15,9 +20,9 @@ const collectionSchema = {
   url: notesUrl,
   mainEntity: {
     '@type': 'ItemList',
-    itemListElement: posts.map((post, index) => ({
+    itemListElement: page.data.map((post, index) => ({
       '@type': 'ListItem',
-      position: index + 1,
+      position: (page.currentPage - 1) * page.size + index + 1,
       url: new URL(`/notes/${post.id.replace(/\.(md|mdx)$/i, '')}`, Astro.site).toString(),
       name: post.data.title,
     })),
@@ -38,11 +43,11 @@ const collectionSchema = {
       </p>
     </div>
 
-    {posts.length === 0 ? (
+    {page.data.length === 0 ? (
       <p class="text-muted-foreground">No notes found.</p>
     ) : (
       <ul class="flex flex-col gap-4">
-        {posts.map((post, index) => (
+        {page.data.map((post, index) => (
           <li>
             <ArticleCard
               article={{
@@ -51,11 +56,31 @@ const collectionSchema = {
                 excerpt: post.data.description,
                 date: post.data.pubDate,
               }}
-              index={index}
+              index={(page.currentPage - 1) * page.size + index}
             />
           </li>
         ))}
       </ul>
+    )}
+
+    {page.lastPage > 1 && (
+      <nav class="flex items-center justify-between pt-4 text-sm text-muted-foreground">
+        {page.url.prev ? (
+          <a href={page.url.prev} class="hover:text-foreground transition-colors">
+            &larr; Newer
+          </a>
+        ) : (
+          <span />
+        )}
+        <span>Page {page.currentPage} of {page.lastPage}</span>
+        {page.url.next ? (
+          <a href={page.url.next} class="hover:text-foreground transition-colors">
+            Older &rarr;
+          </a>
+        ) : (
+          <span />
+        )}
+      </nav>
     )}
   </section>
 </BaseLayout>
