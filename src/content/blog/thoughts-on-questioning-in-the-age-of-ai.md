@@ -54,7 +54,7 @@ Prompt literacy sharpens the tool. Question literacy sharpens the person.
 
 You can write an excellent prompt and still accept the output uncritically. Question literacy is the habit of asking with intent: to clarify, challenge, probe assumptions, explore alternatives, or decide what to do next.
 
-Like I mentioned what Karpathy did in my previous article [link]. That is the part we need to teach!
+Like I mentioned what Karpathy did in my previous article [https://nehal.work/notes/the-curious-case-of-critical-thinking/]. That is the part we need to teach!
 
 ---
 
