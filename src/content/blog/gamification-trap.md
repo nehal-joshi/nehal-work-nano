@@ -1,6 +1,6 @@
 ---
 title: "The Gamification Trap"
-description: "I clocked months of streaks on two famous learning apps and remembered almost nothing. The apps were not broken. They were optimised for the wrong thing."
+description: "Streaks, badges, and XP feel like learning. They are not. A look at why gamified apps optimise for engagement over capability, and what durable learning actually requires."
 pubDate: 2026-06-04
 coverImage: "https://mbgavbtrrqgsqqdhkpmx.supabase.co/storage/v1/object/public/article-images/gamification-trap-imagegen.png"
 ---
