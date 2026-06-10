@@ -1,6 +1,6 @@
 ---
 title: "Teaching AI: Notes From A Classroom"
-description: "A query is not a question. What a session with 9 to 14 year olds at Lernok's pilot cohort revealed about thinking before you ask, and why that habit matters more than any AI skill."
+description: "What a session with 9 to 14 year olds revealed about thinking before you ask, and why that habit matters more than any AI skill."
 pubDate: 2026-06-10
 coverImage: "https://mbgavbtrrqgsqqdhkpmx.supabase.co/storage/v1/object/public/article-images/think-first-then-ask.png"
 ---
